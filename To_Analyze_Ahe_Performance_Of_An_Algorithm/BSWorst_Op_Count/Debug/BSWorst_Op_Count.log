@@ -1,0 +1,3 @@
+﻿  BSWorstOpCount.c
+D:\CodeData\Data_Structures_Using_C\To_Analyze_Ahe_Performance_Of_An_Algorithm\BSWorst_Op_Count\BSWorstOpCount.c(34,6): warning C4101: 'idx' :참조되지 않은 지역 변수입니다.
+  BSWorst_Op_Count.vcxproj -> D:\CodeData\Data_Structures_Using_C\To_Analyze_Ahe_Performance_Of_An_Algorithm\BSWorst_Op_Count\Debug\BSWorst_Op_Count.exe

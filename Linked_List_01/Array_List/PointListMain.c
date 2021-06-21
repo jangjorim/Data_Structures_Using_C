@@ -50,7 +50,7 @@ int main() {
 		}
 
 		while (LNext(&list, &ppos)) {
-			if(PointComp(ppos, &comPos) == 1) {
+			if (PointComp(ppos, &comPos) == 1) {
 				ppos = LRemove(&list);
 				free(ppos);
 			}

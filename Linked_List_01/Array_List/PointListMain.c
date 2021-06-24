@@ -40,19 +40,19 @@ int main() {
 	printf("\n");
 
 	//xpos가 2인 모든 데이터 삭제
-	comPos.xpos = 2;
+	comPos.xpos = 2;			// 삭제할 데이터를 Point 구조체의 멤버에 저장하였다.
 	comPos.ypos = 0;
 
-	if (LFirst(&list, &ppos)) {
-		if (PointComp(ppos, &comPos) == 1) {
-			ppos = LRemove(&list);
-			free(ppos);
+	if (LFirst(&list, &ppos)) {			// 데이터가 들어있는 구조체 주소와 현재 데이터가 들어있는 구조체 주소를 인자로 전달한다.
+		if (PointComp(ppos, &comPos) == 1) {			// 현재 메모리 주소에 담겨있는 주소와 삭제할 데이터가 있는 구조체 주소를 함수의 인자로 받아 xpos의 값이 서로 같다면 1을 반환하므로 참이된다.
+			ppos = LRemove(&list);			// 삭제할 데이터가 있는 곳의 주소를 대입받는다.
+			free(ppos);			// 할당된 메모리를 해제해준다.
 		}
 
-		while (LNext(&list, &ppos)) {
-			if (PointComp(ppos, &comPos) == 1) {
-				ppos = LRemove(&list);
-				free(ppos);
+		while (LNext(&list, &ppos)) {			// 데이터가 들어있는 구조체 주소와 현재 데이터가 들어있는 구조체 주소를 인자로 전달한다.
+			if (PointComp(ppos, &comPos) == 1) {			// 현재 메모리 주소에 담겨있는 주소와 삭제할 데이터가 있는 구조체 주소를 함수의 인자로 받아 xpos의 값이 서로 같다면 1을 반환하므로 참이되어 아래 구문을 실행한다.
+				ppos = LRemove(&list);			// 삭제할 데이터가 있는 곳의 주소를 대입받는다.
+				free(ppos);			// 할당된 메모리를 해제해준다.
 			}
 		}
 	}
@@ -60,11 +60,11 @@ int main() {
 	// 삭제후 남은 데이터 전체 출력
 	printf("현재 데이터의 수 : %d \n", LCount(&list));
 
-	if (LFirst(&list, &ppos)) {
-		ShowPointPos(ppos);
+	if (LFirst(&list, &ppos)) {			// 데이터가 들어있는 구조체 주소와 현재 데이터를 가지고 있는 메모리 주소를 인자로 넘겨준다.
+		ShowPointPos(ppos);			// 현재 데이터 값을 화면에 출력해 준다.
 
-		while (LNext(&list, &ppos))
-			ShowPointPos(ppos);
+		while (LNext(&list, &ppos))			// 데이터가 들어 있는 구조체 주소와 현재 데이터를 가지고 있는 메모리 주소를 인자로 전달하여 마지막 데이터 까지 검사하고 검사가 끝나기 전까지 계속 실행된다.
+			ShowPointPos(ppos);			// 현제 데이터의 값을 화면에 출력해 준다.
 	}
 	printf("\n");
 

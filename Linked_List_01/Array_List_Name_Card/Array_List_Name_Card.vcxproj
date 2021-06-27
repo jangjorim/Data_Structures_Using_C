@@ -139,7 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayList.h" />
     <ClInclude Include="NameCard.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArrayList.c" />
+    <ClCompile Include="NameCard.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

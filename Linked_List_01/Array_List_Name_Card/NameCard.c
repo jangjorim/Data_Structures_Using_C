@@ -3,7 +3,7 @@
 #include <string.h>
 #include "NameCard.h"
 
-NameCard* MakeNameCard(char* name, char* phone) {
+NameCard* MakeNameCard(char* name, char* phone) {			//NameCard 구조체형으로 함수를 선언 한다.
 	NameCard* newCard = (NameCard*)malloc(sizeof(NameCard));
 	strcpy(newCard->name, name);
 	strcpy(newCard->phone, phone);

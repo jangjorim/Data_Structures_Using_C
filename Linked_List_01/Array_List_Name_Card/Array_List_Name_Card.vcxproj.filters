@@ -29,5 +29,8 @@
     <ClCompile Include="NameCard.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="NameCardListMain.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

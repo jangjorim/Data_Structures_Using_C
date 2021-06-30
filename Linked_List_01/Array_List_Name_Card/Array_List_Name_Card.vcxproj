@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="ArrayList.c" />
     <ClCompile Include="NameCard.c" />
+    <ClCompile Include="NameCardListMain.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

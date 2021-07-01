@@ -5,26 +5,26 @@
 
 int main() {
 	List list;
-	NameCard* pcard;
-	ListInit(&list);
-
-	pcard = MakeNameCard("ÀÌÁø¼ö", "010-1111-2222");
+	NameCard* pcard;			// NameCard êµ¬ì¡°ì²´ í˜•ìœ¼ë¡œ í¬ì¸í„°pcardì„ ì„ ì–¸í•œë‹¤.
+	ListInit(&list);			// listë¥¼ ì´ˆê¸°í™” ì…‹íŒ…í•œë‹¤.
+ 
+	pcard = MakeNameCard("ì´ì§„ìˆ˜", "010-1111-2222");
 	LInsert(&list, pcard);
 	
-	pcard = MakeNameCard("ÇÑÁö¿µ", "010-2222-5555");
+	pcard = MakeNameCard("í•œì§€ì˜", "010-2222-5555");
 	LInsert(&list, pcard);
 
-	pcard = MakeNameCard("ÀÌÁø¼ö", "010-3333-7777");
+	pcard = MakeNameCard("ì´ì§„ìˆ˜", "010-3333-7777");
 	LInsert(&list, pcard);
 
-	// ÇÑÁö¿µÀÇ Á¤º¸¸¦ Á¶È¸ÇÏ¿© Ãâ·Â
+	// í•œì§€ì˜ì˜ ì •ë³´ë¥¼ ì¡°íšŒí•˜ì—¬ ì¶œë ¥
 	if (LFirst(&list, &pcard)) {
-		if (!NameCompare(pcard, "ÇÑÁö¿µ")) {
+		if (!NameCompare(pcard, "í•œì§€ì˜")) {
 			ShowNameCardInfo(pcard);
 		}
 		else {
 			while (LNext(&list, &pcard)) {
-				if (!NameCompare(pcard, "ÇÑÁö¿µ")) {
+				if (!NameCompare(pcard, "í•œì§€ì˜")) {
 					ShowNameCardInfo(pcard);
 					break;
 				}
@@ -32,14 +32,14 @@ int main() {
 		}
 	}
 
-	// ÀÌÁø¼öÀÇ Á¤º¸¸¦ Á¶È¸ÇÏ¿© º¯°æ
+	// ì´ì§„ìˆ˜ì˜ ì •ë³´ë¥¼ ì¡°íšŒí•˜ì—¬ ë³€ê²½
 	if (LFirst(&list, &pcard)) {
-		if (!NameCompare(pcard, "ÀÌÁø¼ö")) {
+		if (!NameCompare(pcard, "ì´ì§„ìˆ˜")) {
 			ChangePhoneNum(pcard, "010-9999-9999");
 		}
 		else {
 			while (LNext(&list, &pcard)) {
-				if (!NameCompare(pcard, "ÀÌÁø¼ö")) {
+				if (!NameCompare(pcard, "ì´ì§„ìˆ˜")) {
 					ChangePhoneNum(pcard, "010-9999-9999");
 					break;
 				}
@@ -47,15 +47,15 @@ int main() {
 		}
 	}
 
-	// Á¶¼öÁøÀÇ Á¤º¸¸¦ Á¶È¸ÇÏ¿© »èÁ¦
+	// ì¡°ìˆ˜ì§„ì˜ ì •ë³´ë¥¼ ì¡°íšŒí•˜ì—¬ ì‚­ì œ
 	if (LFirst(&list, &pcard)) {
-		if (!NameCompare(pcard, "Á¶¼öÁø")) {
+		if (!NameCompare(pcard, "ì¡°ìˆ˜ì§„")) {
 			pcard = LRemove(&list);
 			free(pcard);
 		}
 		else {
 			while (LNext(&list, &pcard)) {
-				if (!NameCompare(pcard, "Á¶¼öÁø")) {
+				if (!NameCompare(pcard, "ì¡°ìˆ˜ì§„")) {
 					pcard = LRemove(&list);
 					free(pcard);
 					break;
@@ -64,8 +64,8 @@ int main() {
 		}
 	}
 
-	// ¸ğµç »ç¶÷µéÀÇ Á¤º¸ Ãâ·Â
-	printf("ÇöÀç µ¥ÀÌÅÍ ¼ö : %d \n", LCount(&list));
+	// ëª¨ë“  ì‚¬ëŒë“¤ì˜ ì •ë³´ ì¶œë ¥
+	printf("í˜„ì¬ ë°ì´í„° ìˆ˜ : %d \n", LCount(&list));
 
 	if (LFirst(&list, &pcard)) {
 		ShowNameCardInfo(pcard);

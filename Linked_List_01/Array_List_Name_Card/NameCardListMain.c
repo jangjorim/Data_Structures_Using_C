@@ -8,8 +8,8 @@ int main() {
 	NameCard* pcard;			// NameCard 구조체 형으로 포인터pcard을 선언한다.
 	ListInit(&list);			// list를 초기화 셋팅한다.
  
-	pcard = MakeNameCard("이진수", "010-1111-2222");
-	LInsert(&list, pcard);
+	pcard = MakeNameCard("이진수", "010-1111-2222");// pcard 구조체에 MakeNameCard함수로 이름과 전화번호를 저장하였다 
+	LInsert(&list, pcard);// list에 값이 들어있는구조체 주소를 넘겨준다
 	
 	pcard = MakeNameCard("한지영", "010-2222-5555");
 	LInsert(&list, pcard);

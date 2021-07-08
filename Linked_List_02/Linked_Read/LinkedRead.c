@@ -1,74 +1,74 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct _node {			// _node ¶ó´Â ÀÌ¸§ÀÇ ±¸Á¶Ã¼¸¦ Çü¼º
-	int data;			// ³ëµåÀÇ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â º¯¼ö
-	struct _node* next;			// ´ÙÀ½ ³ëµåÀÇ ÁÖ¼Ò¸¦ ÀúÀåÇÏ´Â Æ÷ÀÎÅÍ º¯¼ö
-} Node;			// typedef·Î Node¶ó´Â ÀÌ¸§À¸·Î ±¸Á¶Ã¼ ÀÌ¸§À» Àç¼³Á¤ ÇÑ´Ù.
+typedef struct _node {			// _node ë¼ëŠ” ì´ë¦„ì˜ êµ¬ì¡°ì²´ë¥¼ í˜•ì„±
+	int data;			// ë…¸ë“œì˜ ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ” ë³€ìˆ˜
+	struct _node* next;			// ë‹¤ìŒ ë…¸ë“œì˜ ì£¼ì†Œë¥¼ ì €ìž¥í•˜ëŠ” í¬ì¸í„° ë³€ìˆ˜
+} Node;			// typedefë¡œ Nodeë¼ëŠ” ì´ë¦„ìœ¼ë¡œ êµ¬ì¡°ì²´ ì´ë¦„ì„ ìž¬ì„¤ì • í•œë‹¤.
 
 int main() {
-	Node* head = NULL;			// ¿¬°á¸®½ºÆ®ÀÇ ¸Ó¸®¸¦ °¡¸®Å°´Â Æ÷ÀÎÅÍ ÁÖ¼Ò¸¦ ´ã´Â º¯¼ö
-	Node* tail = NULL;			// ¿¬°á¸®½ºÆ®ÀÇ ²¿¸®¸¦ °¡¸®Å°´Â Æ÷ÀÎÅÍ ÁÖ¼Ò¸¦ ´ã´Â º¯¼ö
-	Node* cur = NULL;			// ¿¬°á¸®½ºÆ®ÀÇ ÀúÀåµÈ µ¥ÀÌÅÍ¸¦ Á¶È¸ÇÏ´Âµ¥ »ç¿ëµÇ´Â º¯¼ö
+	Node* head = NULL;			// ì—°ê²°ë¦¬ìŠ¤íŠ¸ì˜ ë¨¸ë¦¬ë¥¼ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„° ì£¼ì†Œë¥¼ ë‹´ëŠ” ë³€ìˆ˜
+	Node* tail = NULL;			// ì—°ê²°ë¦¬ìŠ¤íŠ¸ì˜ ê¼¬ë¦¬ë¥¼ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„° ì£¼ì†Œë¥¼ ë‹´ëŠ” ë³€ìˆ˜
+	Node* cur = NULL;			// ì—°ê²°ë¦¬ìŠ¤íŠ¸ì˜ ì €ìž¥ëœ ë°ì´í„°ë¥¼ ì¡°íšŒí•˜ëŠ”ë° ì‚¬ìš©ë˜ëŠ” ë³€ìˆ˜
 
-	Node* newNode = NULL;			// »õ·Î¿î ³ëµåÀÇ ÁÖ¼Ò¸¦ ´ã´Â Æ÷ÀÎÅÍ º¯¼ö
-	int readData;			// ÀÔ·Â¹Þ´Â µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â º¯¼ö
+	Node* newNode = NULL;			// ìƒˆë¡œìš´ ë…¸ë“œì˜ ì£¼ì†Œë¥¼ ë‹´ëŠ” í¬ì¸í„° ë³€ìˆ˜
+	int readData;			// ìž…ë ¥ë°›ëŠ” ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ” ë³€ìˆ˜
 
-	// µ¥ÀÌÅÍ¸¦ ÀÔ·Â ¹Þ´Â °úÁ¤ //
-	printf("0 ÀÌÇÏÀÇ ¼ö¸¦ ÀÔ·Â½Ã ÀÔ·ÂÀÌ Á¾·áµË´Ï´Ù. \n");
+	// ë°ì´í„°ë¥¼ ìž…ë ¥ ë°›ëŠ” ê³¼ì • //
+	printf("0 ì´í•˜ì˜ ìˆ˜ë¥¼ ìž…ë ¥ì‹œ ìž…ë ¥ì´ ì¢…ë£Œë©ë‹ˆë‹¤. \n");
 	while (1) {
-		printf("ÀÚ¿¬¼ö ÀÔ·Â: ");
-		scanf_s("%d", &readData);			// ¼ö¸¦ ÀÔ·Â¹Þ±â
-		if (readData < 1)			// 0ÀÌÇÏÀÇ ¼ö¸¦ ÀÔ·ÂÇÏ¸é µ¥ÀÌÅÍ¸¦ ±×¸¸ ÀÔ·Â¹Þ´Â´Ù.
+		printf("ìžì—°ìˆ˜ ìž…ë ¥: ");
+		scanf_s("%d", &readData);			// ìˆ˜ë¥¼ ìž…ë ¥ë°›ê¸°
+		if (readData < 1)			// 0ì´í•˜ì˜ ìˆ˜ë¥¼ ìž…ë ¥í•˜ë©´ ë°ì´í„°ë¥¼ ê·¸ë§Œ ìž…ë ¥ë°›ëŠ”ë‹¤.
 			break;
 
-		// ³ëµåÀÇ Ãß°¡°úÁ¤
-		newNode = (Node*)malloc(sizeof(Node));			// »õ·Î¿î ³ëµå¸¦ ÇÒ´çÇÑ´Ù.
-		newNode->data = readData;			// »õ³ëµå µ¥ÀÌÅÍ¿¡ ÀÔ·Â ¹ÞÀº °ªÀ» ÀúÀåÇÑ´Ù.
-		newNode->next = NULL;			// »õ³ëµå ´ÙÀ½¿¡ ÀÌ¾îÁö´Â(¿¬°áÇØ¾ßÇÏ´Â) °÷ÀÇ ÁÖ¼Ò´Â ºñ¿ö³õÀº´Ù.
+		// ë…¸ë“œì˜ ì¶”ê°€ê³¼ì •
+		newNode = (Node*)malloc(sizeof(Node));			// ìƒˆë¡œìš´ ë…¸ë“œë¥¼ í• ë‹¹í•œë‹¤.
+		newNode->data = readData;			// ìƒˆë…¸ë“œ ë°ì´í„°ì— ìž…ë ¥ ë°›ì€ ê°’ì„ ì €ìž¥í•œë‹¤.
+		newNode->next = NULL;			// ìƒˆë…¸ë“œ ë‹¤ìŒì— ì´ì–´ì§€ëŠ”(ì—°ê²°í•´ì•¼í•˜ëŠ”) ê³³ì˜ ì£¼ì†ŒëŠ” ë¹„ì›Œë†“ëŠ”ë‹¤.
 
-		if (head == NULL)			// Ã¹ ¹øÂ° ³ëµå¶ó¸é
-			head = newNode;			// Ã¹ ¹øÂ° ³ëµå¸¦ head°¡ °¡¸®Å°°Ô ÇÑ´Ù.
-		else						// µÎ ¹øÂ° ÀÌÈÄ ³ëµå¶ó¸é
-			tail->next = newNode;			// ¿¬°á¸®½ºÆ®ÀÇ ¸¶Áö¸· ºÎºÐÀ» °¡¸®Å°´Â tail¿¡ »õ³ëµåÀÇ ÁÖ¼Ò°ªÀ» ³Ö´Â´Ù.
+		if (head == NULL)			// ì²« ë²ˆì§¸ ë…¸ë“œë¼ë©´
+			head = newNode;			// ì²« ë²ˆì§¸ ë…¸ë“œë¥¼ headê°€ ê°€ë¦¬í‚¤ê²Œ í•œë‹¤.
+		else						// ë‘ ë²ˆì§¸ ì´í›„ ë…¸ë“œë¼ë©´
+			tail->next = newNode;			// ì—°ê²°ë¦¬ìŠ¤íŠ¸ì˜ ë§ˆì§€ë§‰ ë¶€ë¶„ì„ ê°€ë¦¬í‚¤ëŠ” tailì— ìƒˆë…¸ë“œì˜ ì£¼ì†Œê°’ì„ ë„£ëŠ”ë‹¤.
 
-		tail = newNode;			// tail¿¡ »õ·Î¿î ³ëµåÀÇ ÁÖ¼Ò°ªÀ» ³Ö´Â´Ù.
+		tail = newNode;			// tailì— ìƒˆë¡œìš´ ë…¸ë“œì˜ ì£¼ì†Œê°’ì„ ë„£ëŠ”ë‹¤.
 	}
 	printf("\n");
 
-	// ÀÔ·Â ¹ÞÀº µ¥ÀÌÅÍÀÇ Ãâ·Â°úÁ¤ //
-	printf("ÀÔ·Â ¹ÞÀº µ¥ÀÌÅÍÀÇ ÀüÃ¼Ãâ·Â! \n");
-	if (head == NULL) {			// ¿¬°á¸®½ºÆ®°¡ ½ÃÀÛµÇ´Â ÇØµåºÎºÐÀÌ ¾øÀ¸¸é ÀúÀåµÈ µ¥ÀÌÅÍ°¡ ¾ø´Ù´Â ¶æÀÌ´Ù.
-		printf("ÀúÀåµÈ ÀÚ¿¬¼ö°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. \n");
+	// ìž…ë ¥ ë°›ì€ ë°ì´í„°ì˜ ì¶œë ¥ê³¼ì • //
+	printf("ìž…ë ¥ ë°›ì€ ë°ì´í„°ì˜ ì „ì²´ì¶œë ¥! \n");
+	if (head == NULL) {			// ì—°ê²°ë¦¬ìŠ¤íŠ¸ê°€ ì‹œìž‘ë˜ëŠ” í•´ë“œë¶€ë¶„ì´ ì—†ìœ¼ë©´ ì €ìž¥ëœ ë°ì´í„°ê°€ ì—†ë‹¤ëŠ” ëœ»ì´ë‹¤.
+		printf("ì €ìž¥ëœ ìžì—°ìˆ˜ê°€ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. \n");
 	}
 	else {
-		cur = head;			// Å½»ö¿¡ »ç¿ëµÇ´Â Æ÷ÀÎÅÍ º¯¼ö¿¡ ¸®½ºÆ®ÀÇ Ã³À½ ½ÃÀÛµÇ´Â ÁÖ¼Ò¸¦ ´ëÀÔÇÑ´Ù.
-		printf("%d ", cur->data);			// Ã¹ ¹øÂ° µ¥ÀÌÅÍ Ãâ·Â
+		cur = head;			// íƒìƒ‰ì— ì‚¬ìš©ë˜ëŠ” í¬ì¸í„° ë³€ìˆ˜ì— ë¦¬ìŠ¤íŠ¸ì˜ ì²˜ìŒ ì‹œìž‘ë˜ëŠ” ì£¼ì†Œë¥¼ ëŒ€ìž…í•œë‹¤.
+		printf("%d ", cur->data);			// ì²« ë²ˆì§¸ ë°ì´í„° ì¶œë ¥
 
-		while (cur->next != NULL) {			// µÎ ¹øÂ° ÀÌÈÄÀÇ µ¥ÀÌÅÍ°¡ ÀÖ´Ù¸é ¸¶Áö¸· ³ëµå±îÁö ½ÇÇàÇÑ´Ù.
-			cur = cur->next;			// µ¥ÀÌÅÍ Ãâ·ÂÀ» ÇÏ°í³­ ´ÙÀ½ ³ëµåÀÇ ÁÖ¼Ò°ªÀ» ´ëÀÔ¹Þ´Â´Ù.
-			printf("%d ", cur->data);			// ´ÙÀ½³ëµåÀÇ µ¥ÀÌÅÍ °ªÀ» Ãâ·ÂÇÑ´Ù.
+		while (cur->next != NULL) {			// ë‘ ë²ˆì§¸ ì´í›„ì˜ ë°ì´í„°ê°€ ìžˆë‹¤ë©´ ë§ˆì§€ë§‰ ë…¸ë“œê¹Œì§€ ì‹¤í–‰í•œë‹¤.
+			cur = cur->next;			// ë°ì´í„° ì¶œë ¥ì„ í•˜ê³ ë‚œ ë‹¤ìŒ ë…¸ë“œì˜ ì£¼ì†Œê°’ì„ ëŒ€ìž…ë°›ëŠ”ë‹¤.
+			printf("%d ", cur->data);			// ë‹¤ìŒë…¸ë“œì˜ ë°ì´í„° ê°’ì„ ì¶œë ¥í•œë‹¤.
 		}
 	}
 	printf("\n\n");
 
-	// ¸Þ¸ð¸® ÇØÁ¦°úÁ¤ //
+	// ë©”ëª¨ë¦¬ í•´ì œê³¼ì • //
 	if (head == NULL) {
-		return 0;			// ÇØÁ¦ÇÒ ³ëµå°¡ Á¸ÀçÇÏÁö ¾Ê´Â´Ù.
+		return 0;			// í•´ì œí•  ë…¸ë“œê°€ ì¡´ìž¬í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	}
 	else {
-		Node* delNode = head;			// »èÁ¦ÇÒ ³ëµåÀÇ ÁÖ¼Ò°ªÀ» ÀúÀåÇÒ Æ÷ÀÎÅÍ º¯¼ö¿¡ ¿¬°á¸®½ºÆ®ÀÇ Çìµå ÁÖ¼Ò °ªÀ» ³Ö´Â´Ù.
-		Node* delNextNode = head->next;			// »èÁ¦ÇÒ ³ëµåÀÇ ´ÙÀ½ ÁÖ¼Ò°ªÀ» ÀúÀåÇÏ´Â Æ÷ÀÎÅÍ º¯¼ö¸¦ ¼±¾ðÇÏ°í ÇìµåÀÇ next°ªÀ» ³Ö´Â´Ù.
+		Node* delNode = head;			// ì‚­ì œí•  ë…¸ë“œì˜ ì£¼ì†Œê°’ì„ ì €ìž¥í•  í¬ì¸í„° ë³€ìˆ˜ì— ì—°ê²°ë¦¬ìŠ¤íŠ¸ì˜ í—¤ë“œ ì£¼ì†Œ ê°’ì„ ë„£ëŠ”ë‹¤.
+		Node* delNextNode = head->next;			// ì‚­ì œí•  ë…¸ë“œì˜ ë‹¤ìŒ ì£¼ì†Œê°’ì„ ì €ìž¥í•˜ëŠ” í¬ì¸í„° ë³€ìˆ˜ë¥¼ ì„ ì–¸í•˜ê³  í—¤ë“œì˜ nextê°’ì„ ë„£ëŠ”ë‹¤.
 
-		printf("%dÀ»(¸¦) »èÁ¦ÇÕ´Ï´Ù. \n", head->data);			// »èÁ¦ÇÒ µ¥ÀÌÅÍ¸¦ È­¸é¿¡ Ãâ·ÂÇØ ÁØ´Ù.
-		free(delNode);			// Ã¹ ¹øÂ° ³ëµå »èÁ¦ÇÏ¿© ¸Þ¸ð¸® ÁÖ¼Ò ÇÒ´çÀ» ÇØÁöÇÑ´Ù.
+		printf("%dì„(ë¥¼) ì‚­ì œí•©ë‹ˆë‹¤. \n", head->data);			// ì‚­ì œí•  ë°ì´í„°ë¥¼ í™”ë©´ì— ì¶œë ¥í•´ ì¤€ë‹¤.
+		free(delNode);			// ì²« ë²ˆì§¸ ë…¸ë“œ ì‚­ì œí•˜ì—¬ ë©”ëª¨ë¦¬ ì£¼ì†Œ í• ë‹¹ì„ í•´ì§€í•œë‹¤.
 
-		while (delNextNode != NULL) {			// ´ÙÀ½ ³ëµå°¡ ÀÖ´Ù¸é °è¼Ó ½ÇÇàÇÑ´Ù.
-			delNode = delNextNode;			// »èÁ¦ÈÄ ´ÙÀ½¿¡ »èÁ¦ÇÒ µ¥ÀÌÅÍ°¡ ÀÖ´Â ´ÙÀ½ ÁÖ¼Ò°ªÀ» »èÁ¦ÇÒ ³ëµå¸¦ °¡¸®Å°´Â Æ÷ÀÎÅÍ º¯¼ö¿¡ ³Ö´Â´Ù.
-			delNextNode = delNextNode->next;			// »èÁ¦ÇÏ´Â µ¥ÀÌÅÍ°¡ ÀÖ´Â ´ÙÀ½ ÁÖ¼Ò°ªÀ» ³Ö´Â´Ù.
+		while (delNextNode != NULL) {			// ë‹¤ìŒ ë…¸ë“œê°€ ìžˆë‹¤ë©´ ê³„ì† ì‹¤í–‰í•œë‹¤.
+			delNode = delNextNode;			// ì‚­ì œí›„ ë‹¤ìŒì— ì‚­ì œí•  ë°ì´í„°ê°€ ìžˆëŠ” ë‹¤ìŒ ì£¼ì†Œê°’ì„ ì‚­ì œí•  ë…¸ë“œë¥¼ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„° ë³€ìˆ˜ì— ë„£ëŠ”ë‹¤.
+			delNextNode = delNextNode->next;			// ì‚­ì œí•˜ëŠ” ë°ì´í„°ê°€ ìžˆëŠ” ë‹¤ìŒ ì£¼ì†Œê°’ì„ ë„£ëŠ”ë‹¤.
 
-			printf("%dÀ»(¸¦) »èÁ¦ÇÕ´Ï´Ù. \n", delNode->data);				// »èÁ¦ÇÏ´Â µ¥ÀÌÅÍ¸¦ Ãâ·ÂÇØ ÁØ´Ù.
-			free(delNode);			// ¸Þ¸ð¸® ÇÒ´çÀ» ÇØÁöÇØ ÁØ´Ù.
+			printf("%dì„(ë¥¼) ì‚­ì œí•©ë‹ˆë‹¤. \n", delNode->data);				// ì‚­ì œí•˜ëŠ” ë°ì´í„°ë¥¼ ì¶œë ¥í•´ ì¤€ë‹¤.
+			free(delNode);			// ë©”ëª¨ë¦¬ í• ë‹¹ì„ í•´ì§€í•´ ì¤€ë‹¤.
 		}
 	}
 	return 0;

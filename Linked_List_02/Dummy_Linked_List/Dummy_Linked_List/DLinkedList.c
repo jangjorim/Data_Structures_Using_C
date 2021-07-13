@@ -44,45 +44,45 @@ void LInsert(List * plist, LData data) {			// 데이터를 입력하는 함수
 		SInsert(plist, data);			// 정렬 기준이 있다면 SInsert 함수를 실행
 }
 
-int LFirst(List * plist, LData * pdata) {
-	if (plist->head->next == NULL)
+int LFirst(List * plist, LData * pdata) {			// 첫 번째로 데이터를 조회할 때 사용하는 함수
+	if (plist->head->next == NULL)			// 더미 노드가 NULL을 가리킨다면 반환할 데이터는 없다
 		return FALSE;
 
-	plist->before = plist->head;
-	plist->cur = plist->head->next;
+	plist->before = plist->head;			// before는 더미 노드를 가리키게 함
+	plist->cur = plist->head->next;			// cur은 첫 번째 노드를 가리키게 함
 
-	*pdata = plist->cur->data;
+	*pdata = plist->cur->data;			// 첫 번째 노드의 데이터를 전달함
 	return TRUE;
 }
 
-int LNext(List * plist, LData * pdata) {
-	if (plist->cur->next == NULL)
+int LNext(List * plist, LData * pdata) {			// 두 번째 이후의 데이터를 조회할 때 사용하는 함수
+	if (plist->cur->next == NULL)			// cur이 NULL을 가리키면 반환할 데이터가 없다
 		return FALSE;
 
-	plist->before = plist->cur;
-	plist->cur = plist->cur->next;
+	plist->before = plist->cur;			// cur이 가리키던 것을 before가 가리키게 함
+	plist->cur = plist->cur->next;			// cur은 다음 노드를 가리킴
 
-	*pdata = plist->cur->data;
+	*pdata = plist->cur->data;			// 데이터를 전달 받고 TRUE를 리턴함
 	return TRUE;
 }
 
 LData LRemove(List * plist) {
-	Node * rpos = plist->cur;
-	LData rdata = rpos->data;
+	Node * rpos = plist->cur;			// 소멸 대상의 주소 값을 rpos에 저장
+	LData rdata = rpos->data;			// 소멸 대상의 데이터를 rdata에 저장
 
-	plist->before->next = plist->cur->next;
-	plist->cur = plist->before;
+	plist->before->next = plist->cur->next;			// 소멸 대상의 다음 노드를 before->next에 넣는다
+	plist->cur = plist->before;			// cur의 위치를 조정해서 before와 같은 곳을 가리키게함
 
-	free(rpos);
-	(plist->nunOfData)--;
-	return rdata;
+	free(rpos);			// 메모리 할당을 해지함
+	(plist->nunOfData)--;			// 저장된 데이터 수를 1 감소함
+	return rdata;			// 삭제한 데이터를 반환해 줌
 }
 
 int LCount(List * plist) {
-	return plist->nunOfData;
+	return plist->nunOfData;			// 저장된 데이터 수를 반환해 줌
 }
 
 void SetSortRule(List * plist, int(*comp)(LData d1, LData d2)) {
-	plist->comp = comp;
+	plist->comp = comp;			// comp를 새로운 조건으로 초기화 함
 }
 

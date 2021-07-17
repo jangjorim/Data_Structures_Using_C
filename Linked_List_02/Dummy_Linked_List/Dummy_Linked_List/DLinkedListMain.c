@@ -2,41 +2,42 @@
 #include "DLinkedList.h"
 
 int main() {
-	List list;			// ¸®½ºÆ®¸¦ »ı¼º
+	List list;			// ë¦¬ìŠ¤íŠ¸ë¥¼ ìƒì„±
 	int data;
-	ListInit(&list);			// ÃÊ±âÈ­¸¦ ÁøÇà
+	ListInit(&list);			// ì´ˆê¸°í™”ë¥¼ ì§„í–‰
 
-	LInsert(&list, 11); LInsert(&list, 11);			// µ¥ÀÌÅÍ¸¦ ÀúÀå
+	LInsert(&list, 11); LInsert(&list, 11);			// ë°ì´í„°ë¥¼ ì €ì¥
 	LInsert(&list, 22); LInsert(&list, 22);
 	LInsert(&list, 33);
 
-	printf("ÇöÀç µ¥ÀÌÅÍÀÇ ¼ö: %d \n", LCount(&list));			// ÀúÀåµÈ µ¥ÀÌÅÍ °¹¼ö¸¦ Ãâ·Â
+	printf("í˜„ì¬ ë°ì´í„°ì˜ ìˆ˜: %d \n", LCount(&list));			// ì €ì¥ëœ ë°ì´í„° ê°¯ìˆ˜ë¥¼ ì¶œë ¥
 
-	if (LFirst(&list, &data)) {			// ÀúÀåµÇ¾î ÀÖ´Â µ¥ÀÌÅÍ °ªÀ» ÀüºÎ Ãâ·Â
-		printf("%d ", data);
+	if (LFirst(&list, &data)) {			// ì €ì¥ë˜ì–´ ìˆëŠ” ê°’ì¤‘ ì²« ë²ˆì§¸ ë°ì´í„°ê°€ ìˆëŠ”ì§€ í™•ì¸í•˜ê³  
+		printf("%d ", data);			// ìˆë‹¤ë©´ í™”ë©´ì— ì¶œë ¥í•œë‹¤.
 
-		while (LNext(&list, &data))
-			printf("%d ", data);
+		while (LNext(&list, &data))			// ë‘ ë²ˆì¨° ì´í›„ë¡œë„ ë°ì´í„°ê°€ ìˆë‹¤ë©´ ë§ˆì§€ë§‰ ë°ì´í„°ê¹Œì§€
+			printf("%d ", data);			// í™”ë©´ì— ì¶œë ¥í•´ ì¤€ë‹¤.
 	}
 	printf("\n\n");
 
-	if (LFirst(&list, &data)) {			// ÀúÀåµÇ¾î ÀÖ´Â Ã¹ ¹øÂ° ³ëµåÀÇ µ¥ÀÌÅÍ °ªÀ» È®ÀÎ
-		if (data == 22)			// °ªÀÌ 22¶ó¸é 
-			LRemove(&list);			// µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÔ
-		while (LNext(&list, &data)) {			// ÀúÀåµÇ¾î ÀÖ´Â µÎ ¹øÂ° ³ëµå ÀÌÈÄÀÇ °ªÀ» È®ÀÎ
-			if (data == 22)			// °ªÀÌ 22¶ó¸é
-				LRemove(&list);			// µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÔ
+	if (LFirst(&list, &data)) {			// ì €ì¥ë˜ì–´ ìˆëŠ” ì²« ë²ˆì§¸ ë…¸ë“œì˜ ë°ì´í„° ê°’ì„ í™•ì¸
+		if (data == 22)			// ê°’ì´ 22ë¼ë©´ 
+			LRemove(&list);			// ë°ì´í„°ë¥¼ ì‚­ì œí•¨
+		while (LNext(&list, &data)) {			// ì €ì¥ë˜ì–´ ìˆëŠ” ë‘ ë²ˆì§¸ ë…¸ë“œ ì´í›„ì˜ ê°’ì„ í™•ì¸
+			if (data == 22)			// ê°’ì´ 22ë¼ë©´
+				LRemove(&list);			// ë°ì´í„°ë¥¼ ì‚­ì œí•¨
 		}
 	}
 
-	printf("ÇöÀç µ¥ÀÌÅÍÀÇ ¼ö: %d \n", LCount(&list));			// ÀúÀåµÇ¾îÀÖ´Â µ¥ÀÌÅÍ °¹¼ö¸¦ Ãâ·Â
+	printf("í˜„ì¬ ë°ì´í„°ì˜ ìˆ˜: %d \n", LCount(&list));			// ì €ì¥ë˜ì–´ìˆëŠ” ë°ì´í„° ê°¯ìˆ˜ë¥¼ ì¶œë ¥
 
-	if (LFirst(&list, &data)) {			// ÀúÀåµÇ¾îÀÖ´Â ¸ğµç µ¥ÀÌÅÍ¸¦ È­¸é¿¡ Ãâ·ÂÇÔ
-		printf("%d ", data);
+	if (LFirst(&list, &data)) {			// ì €ì¥ë˜ì–´ ìˆëŠ” ê°’ì¤‘ ì²« ë²ˆì§¸ ë°ì´í„°ê°€ ìˆëŠ”ì§€ í™•ì¸í•˜ê³  
+		printf("%d ", data);			// ìˆë‹¤ë©´ í™”ë©´ì— ì¶œë ¥í•œë‹¤.
 
-		while (LNext(&list, &data))
-			printf("%d ", data);
+		while (LNext(&list, &data))			// ë‘ ë²ˆì¨° ì´í›„ë¡œë„ ë°ì´í„°ê°€ ìˆë‹¤ë©´ ë§ˆì§€ë§‰ ë°ì´í„°ê¹Œì§€
+			printf("%d ", data);			// í™”ë©´ì— ì¶œë ¥í•´ ì¤€ë‹¤.
 	}
+	
 	printf("\n\n");
 	return 0;
 }

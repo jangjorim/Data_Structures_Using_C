@@ -1,33 +1,33 @@
 #pragma once
-#ifndef __C_LINKED_LIST_H__			// Àç ¼±¾ğÀÌ µÇÁö ¾Êµµ·Ï Á¦ÇÑÀ» ÁÖ´Â ±¸¹®
+#ifndef __C_LINKED_LIST_H__			// ì¬ ì„ ì–¸ì´ ë˜ì§€ ì•Šë„ë¡ ì œí•œì„ ì£¼ëŠ” êµ¬ë¬¸
 #define __C_LINKED_LIST_H__
 
-#define TRUE	1			// ¸ÅÅ©·Î ¼±¾ğ 
+#define TRUE	1			// ë§¤í¬ë¡œ ì„ ì–¸ 
 #define FALSE	0
 
-typedef int Data;			// int ÇüÀ» Data·Î ¼±¾ğ
+typedef int Data;			// int í˜•ì„ Dataë¡œ ì„ ì–¸
 
-typedef struct _node {			// ³ëµå ±¸Á¶Ã¼¸¦ ¼±¾ğ
-	Data data;			// DataÇü µ¥ÀÌÅÍ¸¦ ´ã´Â data º¯¼ö ¼±¾ğ
-	struct _node* next;			// ´ÙÀ½ ³ëµåÀÇ ÁÖ¼Ò¸¦ °¡¸®Å°´Â _nodeÇü Æ÷ÀÎÅÍ º¯¼ö ¼±¾ğ
-}Node;			// ±¸Á¶Ã¼ ÀÌ¸§À» Node·Î Àç¼±¾ğ
+typedef struct _node {			// ë…¸ë“œ êµ¬ì¡°ì²´ë¥¼ ì„ ì–¸
+	Data data;			// Dataí˜• ë°ì´í„°ë¥¼ ë‹´ëŠ” data ë³€ìˆ˜ ì„ ì–¸
+	struct _node* next;			// ë‹¤ìŒ ë…¸ë“œì˜ ì£¼ì†Œë¥¼ ê°€ë¦¬í‚¤ëŠ” _nodeí˜• í¬ì¸í„° ë³€ìˆ˜ ì„ ì–¸
+}Node;			// êµ¬ì¡°ì²´ ì´ë¦„ì„ Nodeë¡œ ì¬ì„ ì–¸
 
-typedef struct _CLL {			// ¿¬Çü ¿¬°á ¸®½ºÆ®¸¦ ±¸¼ºÇÏ´Â ±¸Á¶Ã¼¸¦ ¼±¾ğ
-	Node* tail;			// ¸®½ºÆ®ÀÇ ²¿¸®¸¦ °¡¸®Å°´Â ³ëµå
-	Node* cur;			// ÇöÀç ³ëµå¸¦ °¡¸®Å°°í ÀÖ´Â ³ëµå
-	Node* before;		// ÇöÀç ³ëµå¿¡¼­ ÇÑ´Ü°è ÀÌÀüÀÇ ³ëµå¸¦ °¡¸®Å°´Â ³ëµå
-	int numOfData;		// ÀúÀåµÈ ³ëµåÀÇ °¹¼ö¸¦ ÀúÀåÇÏ´Â º¯¼ö
-} CList;				// ±¸Á¶Ã¼ ÀÌ¸§À» CList·Î Àç¼±¾ğ
+typedef struct _CLL {			// ì›í˜• ì—°ê²° ë¦¬ìŠ¤íŠ¸ë¥¼ êµ¬ì„±í•˜ëŠ” êµ¬ì¡°ì²´ë¥¼ ì„ ì–¸
+	Node* tail;			// ë¦¬ìŠ¤íŠ¸ì˜ ê¼¬ë¦¬ë¥¼ ê°€ë¦¬í‚¤ëŠ” ë…¸ë“œ
+	Node* cur;			// í˜„ì¬ ë…¸ë“œë¥¼ ê°€ë¦¬í‚¤ê³  ìˆëŠ” ë…¸ë“œ
+	Node* before;		// í˜„ì¬ ë…¸ë“œì—ì„œ í•œë‹¨ê³„ ì´ì „ì˜ ë…¸ë“œë¥¼ ê°€ë¦¬í‚¤ëŠ” ë…¸ë“œ
+	int numOfData;		// ì €ì¥ëœ ë…¸ë“œì˜ ê°¯ìˆ˜ë¥¼ ì €ì¥í•˜ëŠ” ë³€ìˆ˜
+} CList;				// êµ¬ì¡°ì²´ ì´ë¦„ì„ CListë¡œ ì¬ì„ ì–¸
 
-typedef CList List;			// ±¸Á¶Ã¼ ÀÌ¸§À» List·Î Àç ¼±¾ğ
+typedef CList List;			// êµ¬ì¡°ì²´ ì´ë¦„ì„ Listë¡œ ì¬ ì„ ì–¸
 
-void ListInit(List* plist);			// ¸®½ºÆ®¸¦ ÃÊ±âÈ­ ÇÏ´Â ÇÔ¼ö
-void LInsert(List* plist, Data data);			// ³ëµå¸¦ ²¿¸®¿¡ Ãß°¡ÇÏ´Â ÇÔ¼ö
-void LInsertFront(List* plist, Data data);		// ³ëµå¸¦ ¸Ó¸®¿¡ Ãß°¡ÇÏ´Â ÇÔ¼ö
+void ListInit(List* plist);			// ë¦¬ìŠ¤íŠ¸ë¥¼ ì´ˆê¸°í™” í•˜ëŠ” í•¨ìˆ˜
+void LInsert(List* plist, Data data);			// ë…¸ë“œë¥¼ ê¼¬ë¦¬ì— ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜
+void LInsertFront(List* plist, Data data);		// ë…¸ë“œë¥¼ ë¨¸ë¦¬ì— ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜
 
-int LFirst(List* plist, Data* pdata);			// ¸®½ºÆ® Å½»ö½Ã Ã³À½¿¡¸¸ ½ÇÇàµÇ´Â ÇÔ¼ö
-int LNext(List* plist, Data* pdata);			// ¸®½ºÆ® Å½»ö½Ã LFirst ´ÙÀ½À¸·Î ½ÇÇàÇÏ´Â ÇÔ¼ö
-Data LRemove(List* plist);						// ÇöÀç °¡¸®Å°°í ÀÖ´Â ³ëµå¸¦ »èÁ¦ÇÏ´Â ÇÔ¼ö
-int LCount(List* plist);						// ÇöÀç ¸®½ºÆ®¿¡ ÀúÀåµÈ ³ëµåÀÇ °¹¼ö¸¦ ¹İÈ¯ ÇÏ´Â ÇÔ¼ö
+int LFirst(List* plist, Data* pdata);			// ë¦¬ìŠ¤íŠ¸ íƒìƒ‰ì‹œ ì²˜ìŒì—ë§Œ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜
+int LNext(List* plist, Data* pdata);			// ë¦¬ìŠ¤íŠ¸ íƒìƒ‰ì‹œ LFirst ë‹¤ìŒìœ¼ë¡œ ì‹¤í–‰í•˜ëŠ” í•¨ìˆ˜
+Data LRemove(List* plist);						// í˜„ì¬ ê°€ë¦¬í‚¤ê³  ìˆëŠ” ë…¸ë“œë¥¼ ì‚­ì œí•˜ëŠ” í•¨ìˆ˜
+int LCount(List* plist);						// í˜„ì¬ ë¦¬ìŠ¤íŠ¸ì— ì €ì¥ëœ ë…¸ë“œì˜ ê°¯ìˆ˜ë¥¼ ë°˜í™˜ í•˜ëŠ” í•¨ìˆ˜
 
 #endif // !__C_LINKED_LIST_H__

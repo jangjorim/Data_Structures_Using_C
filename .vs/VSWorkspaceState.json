@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Linked_List_02",
-    "\\Linked_List_02\\Dummy_Linked_List",
-    "\\Linked_List_02\\Dummy_Linked_List\\Dummy_Linked_List"
+    "\\Stack",
+    "\\Stack\\Array_Base_Stack"
   ],
-  "SelectedNode": "\\Linked_List_02\\Dummy_Linked_List\\Dummy_Linked_List.sln",
+  "SelectedNode": "\\Stack\\Array_Base_Stack\\ArrayBaseStack.h",
   "PreviewInSolutionExplorer": false
 }

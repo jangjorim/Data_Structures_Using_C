@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "ArrayBaseStack.h"
 
-void StackInit(Stack* pstack) {
-	pstack->topIndex = -1;
+void StackInit(Stack* pstack) {			// 스택을 초기화 하는 함수 정의
+	pstack->topIndex = -1;			// top을 가리키는 변수를 -1로 초기화 한다.
 }
 
 int SIsEmpty(Stack* pstack) {

@@ -2,8 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\Stack",
-    "\\Stack\\Array_Base_Stack"
+    "\\Stack\\Linked_List_Base_Stack"
   ],
-  "SelectedNode": "\\Stack",
   "PreviewInSolutionExplorer": false
 }

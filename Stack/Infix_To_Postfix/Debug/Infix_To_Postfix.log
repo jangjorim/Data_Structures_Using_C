@@ -1,0 +1,8 @@
+﻿  InfixToPostfix.c
+D:\CodeData\Data_Structures_Using_C\Stack\Infix_To_Postfix\InfixToPostfix.c(84,23): warning C4047: '함수': 'rsize_t'의 간접 참조 수준이 'char *'과(와) 다릅니다.
+D:\CodeData\Data_Structures_Using_C\Stack\Infix_To_Postfix\InfixToPostfix.c(84,16): warning C4024: 'strcpy_s': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+D:\CodeData\Data_Structures_Using_C\Stack\Infix_To_Postfix\InfixToPostfix.c(84,10): error C2198: 'strcpy_s': 호출에 인수가 너무 적습니다.
+  InfixToPostfixMain.c
+D:\CodeData\Data_Structures_Using_C\Stack\Infix_To_Postfix\InfixToPostfixMain.c(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+D:\CodeData\Data_Structures_Using_C\Stack\Infix_To_Postfix\InfixToPostfix.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  코드를 생성하고 있습니다...

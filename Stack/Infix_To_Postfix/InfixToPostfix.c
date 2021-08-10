@@ -5,33 +5,33 @@
 
 //#pragma warning(disable:4996)
 
-int GetOpPrec(char op){
+int GetOpPrec(char op){			// 연산자의 우선 순위 정보를 반환 한다.
 	switch (op)
 	{
 	case '*' :
 	case '/' :
-		return 5;
+		return 5;				// 가장 높은 우선순위로 리턴
 	
 	case '+':
 	case '-':
-		return 3;
+		return 3;				// 5보다는 작고 1보다는 높은 우선 순위로 리턴
 
 	case '(':
-		return 1;
+		return 1;				// 가장 낮은 우선순위로 리턴
 	}
 
-	return -1;
+	return -1;					// 등록되지 않은 연산자임을 알림
 }
 
 int WhoPrecOp(char op1, char op2) {
 	int op1Prec = GetOpPrec(op1);
 	int op2Prec = GetOpPrec(op2);
 
-	if (op1Prec > op2Prec)
+	if (op1Prec > op2Prec)			// op1의 우선 순위가 높다면 1을 리턴
 		return 1;
-	else if (op1Prec < op2Prec)
+	else if (op1Prec < op2Prec)		// op2의 우선 순위가 더 높다면 -1을 리턴
 		return -1;
-	else
+	else							// op1과 op2가 우선 순위가 같다면 0을 리턴
 		return 0;
 }
 

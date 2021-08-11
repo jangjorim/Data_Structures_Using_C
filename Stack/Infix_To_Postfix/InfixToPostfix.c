@@ -38,32 +38,32 @@ int WhoPrecOp(char op1, char op2) {
 void ConvToRPNExp(char exp[]) {
 	Stack stack;
 	int expLen = strlen(exp);
-	char* convExp = (char*)malloc(expLen + 1);
+	char* convExp = (char*)malloc(expLen + 1);			// 변환된 수식을 담을 공간을 마련함
 
 	int i, idx = 0;
 	char tok, popOp;
 
-	memset(convExp, 0, sizeof(char) * expLen + 1);
+	memset(convExp, 0, sizeof(char) * expLen + 1);			// 할당된 배열을 0으로 초기화
 	StackInit(&stack);
 
 	for (i = 0; i < expLen; i++) {
-		tok = exp[i];
-		if (isdigit(tok)) {
-			convExp[idx++] = tok;
+		tok = exp[i];			// exp에 저장된 수식을 한 문자씩 tok에 저장
+		if (isdigit(tok)) {			// tok에 저장된 문자가 숫자인지 확인
+			convExp[idx++] = tok;			// 숫자이면 배열 convExp에 저장
 		}
 		else {
 			switch (tok)
 			{
-			case 'c':
-				SPush(&stack, tok);
+			case '(':					// 여는 소괄호 이면
+				SPush(&stack, tok);		// 스택에 쌓는다
 				break;
 
-			case ')':
+			case ')':					// 닫는 소괄호 이면
 				while (1) {
-					popOp = SPop(&stack);
-					if (popOp == '(')
+					popOp = SPop(&stack);		// 스택에서 연산자를 꺼내어
+					if (popOp == '(')			// 연산자 ( 를 만날 떄까지
 						break;
-					convExp[idx++] = popOp;
+					convExp[idx++] = popOp;		// 배열 convExp에 저장한다.
 				}
 				break;
 
@@ -78,9 +78,9 @@ void ConvToRPNExp(char exp[]) {
 		}
 	}
 
-	while (!SIsEmpty(&stack))
-		convExp[idx++] = SPop(&stack);
+	while (!SIsEmpty(&stack))			// 스택에 남아 있는 모든 연산자를
+		convExp[idx++] = SPop(&stack);	// 배열 convExp로 이동한다.
 
-	strcpy(exp, convExp);
-	free(convExp);
+	strcpy(exp, convExp);				// 변환한 수식을 exp에 복사하고
+	free(convExp);						// convExp는 소멸 시킨다.
 }

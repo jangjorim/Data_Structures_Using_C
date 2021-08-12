@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="InfixToPostfix.c" />
     <ClCompile Include="InfixToPostfixMain.c" />
+    <ClCompile Include="ListBaseStack.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include "ListBaseStack.h"
 
-//#pragma warning(disable:4996)
+#pragma warning(disable:4996)
 
 int GetOpPrec(char op){			// 연산자의 우선 순위 정보를 반환 한다.
 	switch (op)

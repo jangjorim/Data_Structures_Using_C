@@ -5,65 +5,65 @@
 
 
 
-int GetOpPrec(char op){			// ¿¬»êÀÚÀÇ ¿ì¼± ¼øÀ§ Á¤º¸¸¦ ¹İÈ¯ ÇÑ´Ù.
+int GetOpPrec(char op){			// ì—°ì‚°ìì˜ ìš°ì„  ìˆœìœ„ ì •ë³´ë¥¼ ë°˜í™˜ í•œë‹¤.
 	switch (op)
 	{
 	case '*' :
 	case '/' :
-		return 5;				// °¡Àå ³ôÀº ¿ì¼±¼øÀ§·Î ¸®ÅÏ
+		return 5;				// ê°€ì¥ ë†’ì€ ìš°ì„ ìˆœìœ„ë¡œ ë¦¬í„´
 	
 	case '+':
 	case '-':
-		return 3;				// 5º¸´Ù´Â ÀÛ°í 1º¸´Ù´Â ³ôÀº ¿ì¼± ¼øÀ§·Î ¸®ÅÏ
+		return 3;				// 5ë³´ë‹¤ëŠ” ì‘ê³  1ë³´ë‹¤ëŠ” ë†’ì€ ìš°ì„  ìˆœìœ„ë¡œ ë¦¬í„´
 
 	case '(':
-		return 1;				// °¡Àå ³·Àº ¿ì¼±¼øÀ§·Î ¸®ÅÏ
+		return 1;				// ê°€ì¥ ë‚®ì€ ìš°ì„ ìˆœìœ„ë¡œ ë¦¬í„´
 	}
 
-	return -1;					// µî·ÏµÇÁö ¾ÊÀº ¿¬»êÀÚÀÓÀ» ¾Ë¸²
+	return -1;					// ë“±ë¡ë˜ì§€ ì•Šì€ ì—°ì‚°ìì„ì„ ì•Œë¦¼
 }
 
 int WhoPrecOp(char op1, char op2) {
 	int op1Prec = GetOpPrec(op1);
 	int op2Prec = GetOpPrec(op2);
 
-	if (op1Prec > op2Prec)			// op1ÀÇ ¿ì¼± ¼øÀ§°¡ ³ô´Ù¸é 1À» ¸®ÅÏ
+	if (op1Prec > op2Prec)			// op1ì˜ ìš°ì„  ìˆœìœ„ê°€ ë†’ë‹¤ë©´ 1ì„ ë¦¬í„´
 		return 1;
-	else if (op1Prec < op2Prec)		// op2ÀÇ ¿ì¼± ¼øÀ§°¡ ´õ ³ô´Ù¸é -1À» ¸®ÅÏ
+	else if (op1Prec < op2Prec)		// op2ì˜ ìš°ì„  ìˆœìœ„ê°€ ë” ë†’ë‹¤ë©´ -1ì„ ë¦¬í„´
 		return -1;
-	else							// op1°ú op2°¡ ¿ì¼± ¼øÀ§°¡ °°´Ù¸é 0À» ¸®ÅÏ
+	else							// op1ê³¼ op2ê°€ ìš°ì„  ìˆœìœ„ê°€ ê°™ë‹¤ë©´ 0ì„ ë¦¬í„´
 		return 0;
 }
 
 void ConvToRPNExp(char exp[]) {
 	Stack stack;
 	int expLen = strlen(exp);
-	char* convExp = (char*)malloc(expLen + 1);			// º¯È¯µÈ ¼ö½ÄÀ» ´ãÀ» °ø°£À» ¸¶·ÃÇÔ
+	char* convExp = (char*)malloc(expLen + 1);			// ë³€í™˜ëœ ìˆ˜ì‹ì„ ë‹´ì„ ê³µê°„ì„ ë§ˆë ¨í•¨
 
 	int i, idx = 0;
 	char tok, popOp;
 
-	memset(convExp, 0, sizeof(char) * expLen + 1);			// ÇÒ´çµÈ ¹è¿­À» 0À¸·Î ÃÊ±âÈ­
+	memset(convExp, 0, sizeof(char) * expLen + 1);			// í• ë‹¹ëœ ë°°ì—´ì„ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 	StackInit(&stack);
 
 	for (i = 0; i < expLen; i++) {
-		tok = exp[i];			// exp¿¡ ÀúÀåµÈ ¼ö½ÄÀ» ÇÑ ¹®ÀÚ¾¿ tok¿¡ ÀúÀå
-		if (isdigit(tok)) {			// tok¿¡ ÀúÀåµÈ ¹®ÀÚ°¡ ¼ıÀÚÀÎÁö È®ÀÎ
-			convExp[idx++] = tok;			// ¼ıÀÚÀÌ¸é ¹è¿­ convExp¿¡ ÀúÀå
+		tok = exp[i];			// expì— ì €ì¥ëœ ìˆ˜ì‹ì„ í•œ ë¬¸ìì”© tokì— ì €ì¥
+		if (isdigit(tok)) {			// tokì— ì €ì¥ëœ ë¬¸ìê°€ ìˆ«ìì¸ì§€ í™•ì¸
+			convExp[idx++] = tok;			// ìˆ«ìì´ë©´ ë°°ì—´ convExpì— ì €ì¥
 		}
 		else {
 			switch (tok)
 			{
-			case '(':					// ¿©´Â ¼Ò°ıÈ£ ÀÌ¸é
-				SPush(&stack, tok);		// ½ºÅÃ¿¡ ½×´Â´Ù
+			case '(':					// ì—¬ëŠ” ì†Œê´„í˜¸ ì´ë©´
+				SPush(&stack, tok);		// ìŠ¤íƒì— ìŒ“ëŠ”ë‹¤
 				break;
 
-			case ')':					// ´İ´Â ¼Ò°ıÈ£ ÀÌ¸é
+			case ')':					// ë‹«ëŠ” ì†Œê´„í˜¸ ì´ë©´
 				while (1) {
-					popOp = SPop(&stack);		// ½ºÅÃ¿¡¼­ ¿¬»êÀÚ¸¦ ²¨³»¾î
-					if (popOp == '(')			// ¿¬»êÀÚ ( ¸¦ ¸¸³¯ ‹š±îÁö
+					popOp = SPop(&stack);		// ìŠ¤íƒì—ì„œ ì—°ì‚°ìë¥¼ êº¼ë‚´ì–´
+					if (popOp == '(')			// ì—°ì‚°ì ( ë¥¼ ë§Œë‚  Â‹Âšê¹Œì§€
 						break;
-					convExp[idx++] = popOp;		// ¹è¿­ convExp¿¡ ÀúÀåÇÑ´Ù.
+					convExp[idx++] = popOp;		// ë°°ì—´ convExpì— ì €ì¥í•œë‹¤.
 				}
 				break;
 
@@ -78,9 +78,10 @@ void ConvToRPNExp(char exp[]) {
 		}
 	}
 
-	while (!SIsEmpty(&stack))			// ½ºÅÃ¿¡ ³²¾Æ ÀÖ´Â ¸ğµç ¿¬»êÀÚ¸¦
-		convExp[idx++] = SPop(&stack);	// ¹è¿­ convExp·Î ÀÌµ¿ÇÑ´Ù.
+	while (!SIsEmpty(&stack))			// ìŠ¤íƒì— ë‚¨ì•„ ìˆëŠ” ëª¨ë“  ì—°ì‚°ìë¥¼
+		convExp[idx++] = SPop(&stack);	// ë°°ì—´ convExpë¡œ ì´ë™í•œë‹¤.
 
-	strcpy(exp, convExp);				// º¯È¯ÇÑ ¼ö½ÄÀ» exp¿¡ º¹»çÇÏ°í
-	free(convExp);						// convExp´Â ¼Ò¸ê ½ÃÅ²´Ù.
+	strcpy(exp, convExp);				// ë³€í™˜í•œ ìˆ˜ì‹ì„ expì— ë³µì‚¬í•˜ê³ 
+	// strcpy í•¨ìˆ˜ì—ì„œ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ë©´ #pragma warning(disable:4996)ë¥¼ ì„ ì–¸í•´ ì¤€ë‹¤.
+	free(convExp);						// convExpëŠ” ì†Œë©¸ ì‹œí‚¨ë‹¤.
 }

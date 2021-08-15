@@ -69,6 +69,8 @@ void ConvToRPNExp(char exp[]) {
 
 			case '+': case '-':
 			case '*': case '/':
+				// 연산자 있는지 검사하고 스택에 저장되어 있는 연산자의 우선 순위를 확인하고 
+				// 먼저 연산이 되어야 하는 경우 스택에서 연산자를 꺼내어 배열에 저장해야 함으로 아래 구문을 실행한다.
 				while (!SIsEmpty(&stack) && WhoPrecOp(SPeek(&stack), tok) >= 0)
 					convExp[idx++] = SPop(&stack);
 
